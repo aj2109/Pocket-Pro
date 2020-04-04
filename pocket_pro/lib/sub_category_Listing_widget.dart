@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocketpro/tutor_page.dart';
 
 // ignore: must_be_immutable
 class SubCategoryListing extends StatefulWidget {
@@ -29,7 +30,10 @@ class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => TutorPage()));
+      },
       child: Container(
         width: 350,
         height: 170,

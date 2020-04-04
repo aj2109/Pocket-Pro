@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pocketpro/messaging_button.dart';
 
 import 'category_widget.dart';
 
@@ -170,18 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      floatingActionButton: Container(
-        width: 60,
-        height: 60,
-        decoration:
-            BoxDecoration(color: Colors.blue[700], shape: BoxShape.circle),
-        child: IconButton(
-          color: Colors.blue[300],
-          icon: Icon(Icons.message),
-          disabledColor: Colors.white,
-          iconSize: 35,
-        ),
-      ),
+      floatingActionButton: MessagingButton(),
     );
   }
 }
