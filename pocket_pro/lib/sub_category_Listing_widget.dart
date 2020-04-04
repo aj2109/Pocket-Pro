@@ -8,14 +8,15 @@ class SubCategoryListing extends StatefulWidget {
   Color backgroundColor;
   Color textColor;
   AssetImage image;
-
+  double starCount;
   SubCategoryListing(
       {this.backgroundColor,
       this.text,
       this.image,
       this.textColor,
       this.name,
-      this.range});
+      this.range,
+      this.starCount});
 
   @override
   _SubCategoryListingWidgetState createState() =>
@@ -23,6 +24,8 @@ class SubCategoryListing extends StatefulWidget {
 }
 
 class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
+  List<Icon> starArray;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -86,8 +89,7 @@ class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
                               Icon(Icons.star, color: Colors.blue),
                               Icon(Icons.star, color: Colors.blue),
                               Icon(Icons.star, color: Colors.blue),
-                              Icon(Icons.star_half, color: Colors.blue),
-                              Icon(Icons.star)
+                              Icon(Icons.star, color: Colors.blue),
                             ],
                           )
                         ],
@@ -103,4 +105,12 @@ class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
       ),
     );
   }
+
+//  List<Icon> _getStars(starCount) {
+//    final stars = [];
+//    for (int i = 0; i < starCount; i++) {
+//      stars.add(Icon(Icons.star, color: Colors.blue));
+//    }
+//    return stars;
+//  }
 }
