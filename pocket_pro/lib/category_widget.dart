@@ -14,9 +14,6 @@ class CategoryWidget extends StatefulWidget {
 }
 
 class _CategoryWidgetState extends State<CategoryWidget> {
-  final _height = 250.0;
-  final _width = 175.0;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

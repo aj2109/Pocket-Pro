@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         TextSpan(
                           text: "Adam!",
                           style: TextStyle(
-                            color: Colors.indigo[900],
+                            color: Colors.purple[900],
                             fontFamily: 'Nunito',
                           ),
                         )
@@ -100,13 +100,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.orange[200],
+                          backgroundColor: Colors.blue[200],
                           image: AssetImage('images/avatar4.png'),
                           text: 'Maths',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.teal[200],
+                          backgroundColor: Colors.blue[400],
                           image: AssetImage('images/avatar3.png'),
                           text: 'Languages',
                         )
@@ -115,13 +115,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.indigo[200],
+                          backgroundColor: Colors.blue[200],
                           image: AssetImage('images/avatar2.png'),
                           text: 'Sciences',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.purple[100],
+                          backgroundColor: Colors.blue[400],
                           image: AssetImage('images/avatar1.png'),
                           text: 'Music',
                         )
@@ -136,13 +136,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.orange[200],
+                          backgroundColor: Colors.blue[600],
                           image: AssetImage('images/avatar4.png'),
                           text: 'English',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.teal[200],
+                          backgroundColor: Colors.blue[800],
                           image: AssetImage('images/avatar3.png'),
                           text: 'Comp Sci',
                         )
@@ -151,13 +151,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.indigo[200],
+                          backgroundColor: Colors.blue[600],
                           image: AssetImage('images/avatar2.png'),
                           text: 'Art',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.green[100],
+                          backgroundColor: Colors.blue[800],
                           image: AssetImage('images/avatar1.png'),
                           text: 'Gaming',
                         )

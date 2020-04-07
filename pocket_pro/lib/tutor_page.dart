@@ -50,13 +50,13 @@ class _TutorPageState extends State<TutorPage> with TickerProviderStateMixin {
                         color: Colors.black,
                         fontSize: 30,
                         fontFamily: 'Nunito',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                       ),
                       children: <TextSpan>[
                         TextSpan(
                           text: "Joey Bloggs!",
                           style: TextStyle(
-                            color: Colors.indigo[900],
+                            color: Colors.purple[900],
                             fontFamily: 'Nunito',
                           ),
                         )
@@ -81,7 +81,7 @@ class _TutorPageState extends State<TutorPage> with TickerProviderStateMixin {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
-                  color: Colors.grey[200],
+                  color: Colors.white,
                   child: Column(
                     children: <Widget>[
                       Text(
@@ -225,6 +225,10 @@ class _TutorPageState extends State<TutorPage> with TickerProviderStateMixin {
                       Container(
                         height: 100,
                         child: TabBar(
+                          indicator: UnderlineTabIndicator(
+                              borderSide: BorderSide(
+                                  width: 5.0, color: Colors.blue[500]),
+                              insets: EdgeInsets.symmetric(horizontal: 25.0)),
                           tabs: <Widget>[
                             Tab(
                               icon: Text(
