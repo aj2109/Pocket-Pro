@@ -12,6 +12,7 @@ class _TutorPageState extends State<TutorPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(
             children: <Widget>[
@@ -79,9 +80,9 @@ class _TutorPageState extends State<TutorPage> with TickerProviderStateMixin {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: Card(
+                  color: Color.fromRGBO(245, 245, 245, 1),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
-                  color: Colors.white,
                   child: Column(
                     children: <Widget>[
                       Text(
