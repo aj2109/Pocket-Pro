@@ -31,8 +31,7 @@ class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => TutorPage()));
+        Navigator.of(context).push(_createRoute());
       },
       child: Container(
         width: 400,
@@ -159,6 +158,21 @@ class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
           ),
         ),
       ),
+    );
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => TutorPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var tween = Tween(begin: Offset(0.0, 1.0), end: Offset.zero).chain(
+          CurveTween(curve: Curves.ease),
+        );
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
     );
   }
 

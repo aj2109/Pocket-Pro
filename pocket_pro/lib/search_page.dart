@@ -255,4 +255,19 @@ class _SearchPageState extends State<SearchPage> {
       floatingActionButton: MessagingButton(),
     );
   }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => SearchPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var tween = Tween(begin: Offset(0.0, 1.0), end: Offset.zero).chain(
+          CurveTween(curve: Curves.ease),
+        );
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
 }
