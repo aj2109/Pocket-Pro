@@ -74,9 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.transparent,
                   width: 350,
                   child: TextFormField(
-                    textAlign: TextAlign.center,
                     cursorColor: Colors.grey,
                     decoration: InputDecoration(
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.fromLTRB(40, 0, 20, 0),
+                        child: Icon(Icons.search),
+                      ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
                             const BorderSide(color: Colors.grey, width: 2.0),
@@ -88,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                       filled: true,
+                      alignLabelWithHint: true,
                       hintText: "What are you looking for?",
                       hintStyle: TextStyle(
                           color: Colors.grey[400], fontFamily: 'Nunito'),

@@ -167,9 +167,7 @@ class _SearchPageState extends State<SearchPage> {
                             },
                             icon: Icon(Icons.filter_list),
                             iconSize: 30,
-                            color: _filterPressed
-                                ? Colors.purple[900]
-                                : Colors.grey[500],
+                            color: Colors.purple[900],
                           ),
                           SizedBox(width: 15),
                         ],
