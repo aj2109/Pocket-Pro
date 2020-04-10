@@ -74,8 +74,17 @@ class _MessagingPageState extends State<MessagingPage> {
                             title: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "Hi! I'm looking to get a new tutor for English, was hoping that you would be able to help with that.",
+                                "Hi! I'm looking to get a new tutor 4 English, was hoping that you would be able to help with that.",
                               ),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Text('09/04 : 09:19'),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -93,6 +102,15 @@ class _MessagingPageState extends State<MessagingPage> {
                               title: Text(
                                 "That sounds great! I specialise in English language is that something you are wanting help in? I've been doing this 5 years so I'm sure I could help you.",
                               ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text('Today 09:19'),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -109,6 +127,15 @@ class _MessagingPageState extends State<MessagingPage> {
                             child: ListTile(
                               title: Text(
                                 "Give me a message when you decide on how you want to proceed :)",
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text('Today 09:20'),
+                                ],
                               ),
                             ),
                           ),
