@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'home_page.dart';
 
@@ -56,64 +57,104 @@ class _MessagingPageState extends State<MessagingPage> {
             ),
           ),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 80, 5),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: ListTile(
-                  title: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Hi! I'm looking to get a new tutor for English, was hoping that you would be able to help with that.",
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(80, 5, 20, 5),
-              child: Card(
-                color: Colors.blue[100],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    title: Text(
-                      "That sounds great! I specialise in English language is that something you are wanting help in? I've been doing this 5 years so I'm sure I could help you.",
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(80, 0, 20, 0),
-                    child: Card(
-                      color: Colors.blue[100],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListTile(
-                          title: Text(
-                            "Give me a message when you decide on how you want to proceed :)",
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 80, 5),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: ListTile(
+                            title: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Hi! I'm looking to get a new tutor for English, was hoping that you would be able to help with that.",
+                              ),
+                            ),
                           ),
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(80, 5, 20, 5),
+                        child: Card(
+                          color: Colors.blue[100],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              title: Text(
+                                "That sounds great! I specialise in English language is that something you are wanting help in? I've been doing this 5 years so I'm sure I could help you.",
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(80, 0, 20, 0),
+                        child: Card(
+                          color: Colors.blue[100],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              title: Text(
+                                "Give me a message when you decide on how you want to proceed :)",
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              height: 75.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.photo),
+                    iconSize: 25.0,
+                    color: Colors.purple[900],
+                    onPressed: () {},
+                  ),
+                  Expanded(
+                    child: TextField(
+                      textCapitalization: TextCapitalization.sentences,
+                      onChanged: (value) {},
+                      decoration: InputDecoration.collapsed(
+                        hintText: 'Send a message...',
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  IconButton(
+                    icon: Icon(Icons.send),
+                    iconSize: 25.0,
+                    color: Colors.purple[900],
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             ),
           ],
         ),

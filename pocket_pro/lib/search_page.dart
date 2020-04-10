@@ -142,7 +142,7 @@ class _SearchPageState extends State<SearchPage> {
                 child: AnimatedContainer(
                   height: _filterPressed ? 200 : 0,
                   width: MediaQuery.of(context).size.width,
-                  duration: Duration(milliseconds: 500),
+                  duration: Duration(milliseconds: 300),
                   curve: Curves.linear,
                   decoration: BoxDecoration(
                     color: Colors.white,
