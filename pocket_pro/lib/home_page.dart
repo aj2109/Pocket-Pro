@@ -22,9 +22,8 @@ class _MyHomePageState extends State<MyHomePage> {
           SafeArea(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 10),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(width: 20),
                     Container(
@@ -39,9 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         radius: 35,
                       ),
                     ),
+                    Spacer(),
+                    Image(
+                      image: AssetImage('images/appLogo.png'),
+                      width: 100,
+                      height: 100,
+                    ),
                   ],
                 ),
-                SizedBox(height: 10),
                 RichText(
                   text: TextSpan(
                       text: "Hi ",
@@ -54,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         TextSpan(
                           text: "Adam!",
                           style: TextStyle(
-                            color: Colors.purple[900],
+                            color: Colors.blue[700],
                             fontFamily: 'Nunito',
                           ),
                         )
@@ -105,13 +109,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.blue[200],
+                          backgroundColor: Colors.teal[200],
                           image: AssetImage('images/avatar4.png'),
                           text: 'Maths',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.blue[400],
+                          backgroundColor: Colors.teal[400],
                           image: AssetImage('images/avatar3.png'),
                           text: 'Languages',
                         )
@@ -120,13 +124,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.blue[200],
+                          backgroundColor: Colors.teal[200],
                           image: AssetImage('images/avatar2.png'),
                           text: 'Sciences',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.blue[400],
+                          backgroundColor: Colors.teal[400],
                           image: AssetImage('images/avatar1.png'),
                           text: 'Music',
                         )
@@ -141,13 +145,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.blue[600],
+                          backgroundColor: Colors.teal[600],
                           image: AssetImage('images/avatar4.png'),
                           text: 'English',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.blue[800],
+                          backgroundColor: Colors.teal[800],
                           image: AssetImage('images/avatar3.png'),
                           text: 'Comp Sci',
                         )
@@ -156,13 +160,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: <Widget>[
                         CategoryWidget(
-                          backgroundColor: Colors.blue[600],
+                          backgroundColor: Colors.teal[600],
                           image: AssetImage('images/avatar2.png'),
                           text: 'Art',
                         ),
                         SizedBox(height: 10),
                         CategoryWidget(
-                          backgroundColor: Colors.blue[800],
+                          backgroundColor: Colors.teal[800],
                           image: AssetImage('images/avatar1.png'),
                           text: 'Gaming',
                         )

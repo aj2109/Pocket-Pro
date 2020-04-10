@@ -14,7 +14,7 @@ class _MessagingButtonState extends State<MessagingButton> {
       width: 60,
       height: 60,
       decoration:
-          BoxDecoration(color: Colors.purple[900], shape: BoxShape.circle),
+          BoxDecoration(color: Colors.blue[700], shape: BoxShape.circle),
       child: IconButton(
         onPressed: () => Navigator.of(context).push(_createRoute()),
         color: Colors.white,

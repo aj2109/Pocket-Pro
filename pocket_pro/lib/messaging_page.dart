@@ -48,12 +48,12 @@ class _MessagingPageState extends State<MessagingPage> {
               splashColor: Colors.transparent,
               icon: Icon(Icons.arrow_back_ios),
               iconSize: 30,
-              color: _backPressed ? Colors.purple[900] : Colors.grey[500],
+              color: _backPressed ? Colors.teal[600] : Colors.grey[500],
             ),
             backgroundColor: Colors.white,
             title: Text(
               'Josh',
-              style: TextStyle(color: Colors.purple[900]),
+              style: TextStyle(color: Colors.blue[800]),
             ),
           ),
         ),
@@ -162,7 +162,7 @@ class _MessagingPageState extends State<MessagingPage> {
                   IconButton(
                     icon: Icon(Icons.photo),
                     iconSize: 25.0,
-                    color: Colors.purple[900],
+                    color: Colors.teal[600],
                     onPressed: () {},
                   ),
                   Expanded(
@@ -177,7 +177,7 @@ class _MessagingPageState extends State<MessagingPage> {
                   IconButton(
                     icon: Icon(Icons.send),
                     iconSize: 25.0,
-                    color: Colors.purple[900],
+                    color: Colors.teal[600],
                     onPressed: () {},
                   ),
                 ],

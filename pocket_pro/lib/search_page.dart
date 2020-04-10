@@ -47,9 +47,8 @@ class _SearchPageState extends State<SearchPage> {
                         splashColor: Colors.transparent,
                         icon: Icon(Icons.arrow_back_ios),
                         iconSize: _filterPressed ? 0 : 30,
-                        color: _backPressed
-                            ? Colors.purple[900]
-                            : Colors.grey[500],
+                        color:
+                            _backPressed ? Colors.teal[500] : Colors.grey[500],
                       ),
                       Spacer(),
                       IconButton(
@@ -61,7 +60,7 @@ class _SearchPageState extends State<SearchPage> {
                         icon: Icon(Icons.filter_list),
                         iconSize: _filterPressed ? 0 : 30,
                         color: _filterPressed
-                            ? Colors.purple[900]
+                            ? Colors.teal[500]
                             : Colors.grey[500],
                       ),
                       SizedBox(width: 15),
@@ -73,7 +72,7 @@ class _SearchPageState extends State<SearchPage> {
                         fontSize: 40,
                         fontFamily: 'Nunito',
                         fontWeight: FontWeight.w500,
-                        color: Colors.purple[900]),
+                        color: Colors.blue[700]),
                   ),
                   SizedBox(height: 10),
                   SubCategoryListing(
@@ -167,7 +166,7 @@ class _SearchPageState extends State<SearchPage> {
                             },
                             icon: Icon(Icons.filter_list),
                             iconSize: 30,
-                            color: Colors.purple[900],
+                            color: Colors.teal[900],
                           ),
                           SizedBox(width: 15),
                         ],
@@ -178,7 +177,7 @@ class _SearchPageState extends State<SearchPage> {
                           fontSize: 30,
                           fontFamily: 'Nunito',
                           fontWeight: FontWeight.w500,
-                          color: Colors.purple[900],
+                          color: Colors.blue[700],
                         ),
                       ),
                       Spacer(),

@@ -63,10 +63,10 @@ class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.star, color: Colors.blue[800]),
-                                Icon(Icons.star, color: Colors.blue[800]),
-                                Icon(Icons.star, color: Colors.blue[800]),
-                                Icon(Icons.star, color: Colors.blue[800]),
+                                Icon(Icons.star, color: Colors.teal[300]),
+                                Icon(Icons.star, color: Colors.teal[300]),
+                                Icon(Icons.star, color: Colors.teal[300]),
+                                Icon(Icons.star, color: Colors.teal[300]),
                               ],
                             ),
                           ],
@@ -142,10 +142,10 @@ class _SubCategoryListingWidgetState extends State<SubCategoryListing> {
                             child: Text(
                               'Buy 3 lessons get 1 free',
                               style: TextStyle(
-                                  color: Colors.blue[800],
+                                  color: Colors.teal[500],
                                   fontSize: 15,
                                   fontFamily: 'Nunito',
-                                  fontWeight: FontWeight.w800),
+                                  fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),
