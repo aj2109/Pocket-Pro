@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:pocketpro/home_page.dart';
 import 'package:pocketpro/messaging_button.dart';
@@ -13,6 +14,16 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   bool _backPressed = false;
   bool _filterPressed = false;
+  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
+  List<String> added = [];
+  String currentText = "";
+  List<String> suggestions = [
+    'Language',
+    'Literature',
+    'Poetry',
+    'Fiction',
+    'Fantasy',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,47 +35,51 @@ class _SearchPageState extends State<SearchPage> {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                  Column(
                     children: <Widget>[
-                      SizedBox(width: 5),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _backPressed = !_backPressed;
-                          });
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MyHomePage(),
-                            ),
-                          );
-                        },
-                        hoverColor: Colors.blueGrey[600],
-                        focusColor: Colors.blueGrey[600],
-                        disabledColor: Colors.blueGrey[600],
-                        highlightColor: Colors.transparent,
-                        splashColor: Colors.transparent,
-                        icon: Icon(Icons.arrow_back_ios),
-                        iconSize: _filterPressed ? 0 : 30,
-                        color: _backPressed
-                            ? Colors.purple[900]
-                            : Colors.grey[500],
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(width: 5),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _backPressed = !_backPressed;
+                              });
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyHomePage(),
+                                ),
+                              );
+                            },
+                            hoverColor: Colors.blueGrey[600],
+                            focusColor: Colors.blueGrey[600],
+                            disabledColor: Colors.blueGrey[600],
+                            highlightColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            icon: Icon(Icons.arrow_back_ios),
+                            iconSize: _filterPressed ? 0 : 30,
+                            color: _backPressed
+                                ? Colors.purple[900]
+                                : Colors.grey[500],
+                          ),
+                          Spacer(),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _filterPressed = !_filterPressed;
+                              });
+                            },
+                            icon: Icon(Icons.filter_list),
+                            iconSize: _filterPressed ? 0 : 30,
+                            color: _filterPressed
+                                ? Colors.purple[900]
+                                : Colors.grey[500],
+                          ),
+                          SizedBox(width: 15),
+                        ],
                       ),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _filterPressed = !_filterPressed;
-                          });
-                        },
-                        icon: Icon(Icons.filter_list),
-                        iconSize: _filterPressed ? 0 : 30,
-                        color: _filterPressed
-                            ? Colors.purple[900]
-                            : Colors.grey[500],
-                      ),
-                      SizedBox(width: 15),
                     ],
                   ),
                   Text(
@@ -140,7 +155,7 @@ class _SearchPageState extends State<SearchPage> {
               Container(
                 alignment: Alignment.topRight,
                 child: AnimatedContainer(
-                  height: _filterPressed ? 200 : 0,
+                  height: _filterPressed ? 270 : 0,
                   width: MediaQuery.of(context).size.width,
                   duration: Duration(milliseconds: 300),
                   curve: Curves.linear,
@@ -182,62 +197,119 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       ),
                       Spacer(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      Column(
                         children: <Widget>[
-                          Card(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: <Widget>[
-                                    Text('Popularity'),
-                                    Icon(Icons.person, color: Colors.black),
-                                  ],
-                                )),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Text('Popularity'),
+                                        Icon(Icons.person, color: Colors.black),
+                                      ],
+                                    )),
+                              ),
+                              Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Text('Review'),
+                                        Icon(Icons.star,
+                                            color: Colors.blue[800]),
+                                      ],
+                                    )),
+                              ),
+                              Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Text('Price low'),
+                                        Icon(Icons.attach_money,
+                                            color: Colors.green[700]),
+                                      ],
+                                    )),
+                              ),
+                              Card(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Text('Price high'),
+                                        Icon(Icons.attach_money,
+                                            color: Colors.purple[900]),
+                                      ],
+                                    )),
+                              ),
+                            ],
                           ),
-                          Card(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: <Widget>[
-                                    Text('Review'),
-                                    Icon(Icons.star, color: Colors.blue[800]),
-                                  ],
-                                )),
-                          ),
-                          Card(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: <Widget>[
-                                    Text('Price low'),
-                                    Icon(Icons.attach_money,
-                                        color: Colors.green[700]),
-                                  ],
-                                )),
-                          ),
-                          Card(
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: <Widget>[
-                                    Text('Price high'),
-                                    Icon(Icons.attach_money,
-                                        color: Colors.purple[900]),
-                                  ],
-                                )),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                            child: Container(
+                              width: 400,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20))),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 16, 0),
+                                  child: SimpleAutoCompleteTextField(
+                                    key: key,
+                                    suggestions: suggestions,
+                                    textChanged: (text) => currentText = text,
+                                    clearOnSubmit: true,
+                                    suggestionsAmount: 4,
+                                    decoration: InputDecoration(
+                                        border: const UnderlineInputBorder(
+                                            borderSide: BorderSide.none),
+                                        disabledBorder:
+                                            const UnderlineInputBorder(
+                                                borderSide: BorderSide.none),
+                                        enabledBorder:
+                                            const UnderlineInputBorder(
+                                                borderSide: BorderSide.none),
+                                        focusedBorder:
+                                            const UnderlineInputBorder(
+                                                borderSide: BorderSide.none),
+                                        errorBorder: const UnderlineInputBorder(
+                                            borderSide: BorderSide.none),
+                                        focusedErrorBorder:
+                                            const UnderlineInputBorder(
+                                                borderSide: BorderSide.none),
+                                        fillColor: Colors.grey[200],
+                                        hintText: "What are you looking for?",
+                                        hintStyle: new TextStyle(
+                                          color: Colors.grey[400],
+                                          fontFamily: "Nunito",
+                                          fontSize: 15,
+                                        ),
+                                        suffixIcon: new Icon(Icons.search)),
+                                    textSubmitted: (text) => setState(() {
+                                      if (text != "") {
+                                        added.add(text);
+                                      }
+                                    }),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
