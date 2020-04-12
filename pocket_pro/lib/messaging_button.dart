@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'messaging_page.dart';
+import 'package:pocketpro/messaging_contacts_page.dart';
 
 class MessagingButton extends StatefulWidget {
   @override
@@ -28,7 +27,8 @@ class _MessagingButtonState extends State<MessagingButton> {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => MessagingPage(),
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        MessagingContactsPage(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var tween = Tween(begin: Offset(0.0, 1.0), end: Offset.zero).chain(
         CurveTween(curve: Curves.ease),
