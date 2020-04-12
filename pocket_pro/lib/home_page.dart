@@ -226,3 +226,23 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+//Useful stuff:
+//class _WelcomeScreenState extends State<WelcomeScreen>
+//    with SingleTickerProviderStateMixin {
+//  AnimationController controller;
+//  Animation animation;
+//controller.forward();
+//    controller.addListener(() {
+//      setState(() {});
+//      print(animation.value);
+//    });
+//
+//    animation.addStatusListener((status) {
+//      if (status == AnimationStatus.completed) {
+//        controller.reverse(from: 1.0);
+//      } else if (status == AnimationStatus.dismissed) {
+//        controller.forward();
+//      }
+//    });
+//https://pub.dev/packages/animated_text_kit
