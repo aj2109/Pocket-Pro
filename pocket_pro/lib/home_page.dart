@@ -2,6 +2,7 @@ import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocketpro/messaging_button.dart';
+import 'package:pocketpro/profile_page.dart';
 
 import 'category_widget.dart';
 
@@ -45,10 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           shape: BoxShape.circle,
                           color: Colors.grey,
                           backgroundBlendMode: BlendMode.clear),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage('images/selfie.jpg'),
-                        backgroundColor: Colors.transparent,
-                        radius: 35,
+                      child: GestureDetector(
+                        onTap: () => Navigator.of(context).push(_createRoute()),
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage('images/selfie.jpg'),
+                          backgroundColor: Colors.transparent,
+                          radius: 35,
+                        ),
                       ),
                     ),
                   ],
@@ -204,6 +208,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: MessagingButton(),
+    );
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => ProfilePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var tween = Tween(begin: Offset(0.0, 1.0), end: Offset.zero).chain(
+          CurveTween(curve: Curves.ease),
+        );
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
     );
   }
 }
