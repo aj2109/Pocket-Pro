@@ -246,3 +246,5 @@ class _MyHomePageState extends State<MyHomePage> {
 //      }
 //    });
 //https://pub.dev/packages/animated_text_kit
+
+//FOR GOING BACK TO PREVIOUS NAVIGATION: Navigator.pop(context);

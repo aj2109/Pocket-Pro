@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/home_page.dart';
+import 'package:pocketpro/chat_screen.dart';
+import 'package:pocketpro/login_screen.dart';
+import 'package:pocketpro/registration_screen.dart';
+import 'package:pocketpro/welcome_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: WelcomeScreen(),
+      routes: {
+        WelcomeScreen.id: (context) => WelcomeScreen(),
+        'login_screen': (context) => LoginScreen(),
+        'registration_screen': (context) => RegistrationScreen(),
+        'chat_screen': (context) => ChatScreen(),
+      },
     );
   }
 }
