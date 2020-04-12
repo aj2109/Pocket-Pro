@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
-import 'home_page.dart';
+import 'package:pocketpro/messaging_contacts_page.dart';
 
 class MessagingPage extends StatefulWidget {
   @override
@@ -37,7 +36,7 @@ class _MessagingPageState extends State<MessagingPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyHomePage(),
+                    builder: (context) => MessagingContactsPage(),
                   ),
                 );
               },
