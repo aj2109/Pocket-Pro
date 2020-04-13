@@ -1,8 +1,8 @@
-import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocketpro/Screens/profile_page.dart';
 import 'package:pocketpro/Widgets/messaging_button.dart';
+import 'package:pocketpro/Widgets/search_widget.dart';
 
 import '../Widgets/category_widget.dart';
 
@@ -15,17 +15,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
-  List<String> added = [];
-  String currentText = "";
-  List<String> suggestions = [
-    'Language',
-    'Literature',
-    'Poetry',
-    'Fiction',
-    'Fantasy',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,49 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 SizedBox(height: 50),
-                Container(
-                  width: 400,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 0, 16, 0),
-                      child: SimpleAutoCompleteTextField(
-                        key: key,
-                        suggestions: suggestions,
-                        textChanged: (text) => currentText = text,
-                        clearOnSubmit: true,
-                        suggestionsAmount: 4,
-                        decoration: InputDecoration(
-                            border: const UnderlineInputBorder(
-                                borderSide: BorderSide.none),
-                            disabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide.none),
-                            enabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide.none),
-                            focusedBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide.none),
-                            errorBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide.none),
-                            focusedErrorBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide.none),
-                            fillColor: Colors.grey[200],
-                            hintText: "What are you looking for?",
-                            hintStyle: new TextStyle(
-                              color: Colors.grey[400],
-                              fontFamily: "Nunito",
-                              fontSize: 15,
-                            ),
-                            suffixIcon: new Icon(Icons.search)),
-                        textSubmitted: (text) => setState(() {
-                          if (text != "") {
-                            added.add(text);
-                          }
-                        }),
-                      ),
-                    ),
-                  ),
-                ),
+                SearchWidget(),
                 SizedBox(height: 25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

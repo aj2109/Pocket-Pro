@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/Screens/search_page.dart';
+import 'package:pocketpro/Widgets/back_button_widget.dart';
 import 'package:pocketpro/Widgets/messaging_button.dart';
 
 class TutorPage extends StatefulWidget {
@@ -8,8 +8,6 @@ class TutorPage extends StatefulWidget {
 }
 
 class _TutorPageState extends State<TutorPage> with TickerProviderStateMixin {
-  bool _backPressed = false;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,31 +16,8 @@ class _TutorPageState extends State<TutorPage> with TickerProviderStateMixin {
         body: SafeArea(
           child: Column(
             children: <Widget>[
+              BackButtonWidget(),
               SizedBox(width: 5),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _backPressed = !_backPressed;
-                    });
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SearchPage(),
-                      ),
-                    );
-                  },
-                  hoverColor: Colors.blueGrey[600],
-                  focusColor: Colors.blueGrey[600],
-                  disabledColor: Colors.blueGrey[600],
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  icon: Icon(Icons.arrow_back_ios),
-                  iconSize: 30,
-                  color: _backPressed ? Colors.purple[900] : Colors.grey[500],
-                ),
-              ),
               CircleAvatar(
                 radius: 75,
                 backgroundImage: AssetImage('images/selfie2.jpg'),

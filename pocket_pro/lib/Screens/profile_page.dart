@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocketpro/Widgets/back_button_widget.dart';
 
 import 'home_page.dart';
 
@@ -20,27 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
             children: <Widget>[
               Container(
                 alignment: Alignment.topLeft,
-                child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _backPressed = !_backPressed;
-                    });
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyHomePage(),
-                      ),
-                    );
-                  },
-                  hoverColor: Colors.blueGrey[600],
-                  focusColor: Colors.blueGrey[600],
-                  disabledColor: Colors.blueGrey[600],
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  icon: Icon(Icons.arrow_back_ios),
-                  iconSize: 30,
-                  color: _backPressed ? Colors.purple[900] : Colors.grey[500],
-                ),
+                child: BackButtonWidget(),
               ),
               Container(
                 alignment: Alignment.center,
