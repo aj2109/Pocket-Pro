@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/Screens/chat_screen.dart';
 import 'package:pocketpro/Screens/login_screen.dart';
+import 'package:pocketpro/Screens/messaging_page.dart';
 import 'package:pocketpro/Screens/registration_screen.dart';
 import 'package:pocketpro/Screens/welcome_screen.dart';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         'login_screen': (context) => LoginScreen(),
         'registration_screen': (context) => RegistrationScreen(),
-        'chat_screen': (context) => ChatScreen(),
+        'chat_screen': (context) => MessagingPage(),
       },
     );
   }
