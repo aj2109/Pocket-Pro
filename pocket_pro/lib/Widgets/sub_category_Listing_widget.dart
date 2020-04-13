@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/tutor_page.dart';
+import 'package:pocketpro/Screens/tutor_page.dart';
 
 // ignore: must_be_immutable
 class SubCategoryListing extends StatefulWidget {

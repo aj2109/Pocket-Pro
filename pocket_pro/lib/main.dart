@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/chat_screen.dart';
-import 'package:pocketpro/login_screen.dart';
-import 'package:pocketpro/registration_screen.dart';
-import 'package:pocketpro/welcome_screen.dart';
+import 'package:pocketpro/Screens/chat_screen.dart';
+import 'package:pocketpro/Screens/login_screen.dart';
+import 'package:pocketpro/Screens/registration_screen.dart';
+import 'package:pocketpro/Screens/welcome_screen.dart';
 
 void main() => runApp(MyApp());
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/home_page.dart';
+import 'package:pocketpro/Screens/home_page.dart';
 
-import 'search_page.dart';
+import '../Screens/search_page.dart';
 
 class NavBar extends StatefulWidget {
   @override

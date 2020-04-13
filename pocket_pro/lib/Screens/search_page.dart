@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:pocketpro/home_page.dart';
-import 'package:pocketpro/messaging_button.dart';
-import 'package:pocketpro/sub_category_Listing_widget.dart';
+import 'package:pocketpro/Screens/home_page.dart';
+import 'package:pocketpro/Widgets/messaging_button.dart';
+import 'package:pocketpro/Widgets/sub_category_Listing_widget.dart';
 
 class SearchPage extends StatefulWidget {
   @override

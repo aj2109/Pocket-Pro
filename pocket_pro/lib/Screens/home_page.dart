@@ -1,10 +1,10 @@
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pocketpro/messaging_button.dart';
-import 'package:pocketpro/profile_page.dart';
+import 'package:pocketpro/Screens/profile_page.dart';
+import 'package:pocketpro/Widgets/messaging_button.dart';
 
-import 'category_widget.dart';
+import '../Widgets/category_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/search_page.dart';
+import 'package:pocketpro/Screens/search_page.dart';
 
 // ignore: must_be_immutable
 class CategoryWidget extends StatefulWidget {

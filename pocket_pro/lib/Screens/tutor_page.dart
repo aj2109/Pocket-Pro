@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pocketpro/messaging_button.dart';
-import 'package:pocketpro/search_page.dart';
+import 'package:pocketpro/Screens/search_page.dart';
+import 'package:pocketpro/Widgets/messaging_button.dart';
 
 class TutorPage extends StatefulWidget {
   @override

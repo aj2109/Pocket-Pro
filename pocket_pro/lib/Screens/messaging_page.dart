@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pocketpro/messaging_contacts_page.dart';
+import 'package:pocketpro/Screens/messaging_contacts_page.dart';
 
 class MessagingPage extends StatefulWidget {
   @override
