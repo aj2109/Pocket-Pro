@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
 import 'messaging_contacts_page.dart';
 
 final _firestore = Firestore.instance;
@@ -164,7 +163,6 @@ class MessagesStream extends StatelessWidget {
           final messageText = message.data['text'];
           final messageSender = message.data['sender'];
           final currentUser = loggedInUser.email;
-
           final messageBubble = MessageBubble(
             sender: messageSender,
             text: messageText,

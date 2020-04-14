@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'login_screen.dart';
+import 'login_page.dart';
 import 'registration_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -56,7 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                 ),
                 Text(
-                  'Flash Chat',
+                  'Pocket prof',
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
