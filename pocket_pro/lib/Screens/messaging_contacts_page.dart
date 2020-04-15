@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocketpro/Managers/data_manager.dart';
 import 'package:pocketpro/Screens/home_page.dart';
 import 'package:pocketpro/Screens/messaging_page.dart';
 
@@ -56,7 +57,8 @@ class _MessagingContactsPageState extends State<MessagingContactsPage> {
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemExtent: 100,
-                  itemCount: 3,
+                  itemCount:
+                      DataManager.shared.profile.messageContacts.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
                       shape: RoundedRectangleBorder(
@@ -67,13 +69,15 @@ class _MessagingContactsPageState extends State<MessagingContactsPage> {
                             alignment: Alignment.center,
                             height: 100,
                             width: 100,
-                            child: Text('Joey Bloggs')),
+                            child: Text(DataManager
+                                .shared.profile.messageContacts[index].name)),
                         leading: Container(
                           alignment: Alignment.center,
                           height: 100,
                           width: 100,
                           child: CircleAvatar(
-                            backgroundImage: AssetImage('images/selfie2.jpg'),
+                            backgroundImage: AssetImage(DataManager.shared
+                                .profile.messageContacts[index].imageURL),
                             radius: 30,
                           ),
                         ),

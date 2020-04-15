@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'registration_screen.dart';
 
-class WelcomeScreen extends StatefulWidget {
+class WelcomePage extends StatefulWidget {
   static const String id = 'welcome_screen';
 
   @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen>
+class _WelcomePageState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation animation;
@@ -26,7 +26,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     controller.forward();
     controller.addListener(() {
       setState(() {});
-      print(animation.value);
     });
   }
 

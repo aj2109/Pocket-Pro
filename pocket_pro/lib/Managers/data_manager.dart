@@ -3,24 +3,34 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pocketpro/Models/user_models.dart';
 
 class DataManager {
-  final _auth = FirebaseAuth.instance;
-  final _firestore = Firestore.instance;
+  static final shared = DataManager();
+  Profile profile;
+  final auth = FirebaseAuth.instance;
+  final firestore = Firestore.instance;
   FirebaseUser loggedInUser;
+  bool student = true;
 
-  void getCurrentUser() async {
+  Future<bool> getCurrentUser() async {
     try {
-      final user = await _auth.currentUser();
+      final user = await auth.currentUser();
       if (user != null) {
         loggedInUser = user;
+        print('logged in user!');
+        return true;
       }
+      print('logged in user failed 1!');
+      return false;
     } catch (e) {
       print(e);
+      print('logged in user failed 2!');
+      return false;
     }
   }
 
-  retrieveProfile() async {
-    final QuerySnapshot result = await Firestore.instance
-        .collection('student')
+  void retrieveProfile() async {
+    String collectionString = student ? "student" : "tutor";
+    final QuerySnapshot result = await firestore
+        .collection(collectionString)
         .where('id', isEqualTo: loggedInUser.uid)
         .getDocuments();
     final List<DocumentSnapshot> documents = result.documents;
@@ -28,37 +38,53 @@ class DataManager {
       Firestore.instance
           .collection('users')
           .document(loggedInUser.uid)
-          .setData({'name': loggedInUser.displayName, 'id': loggedInUser.uid});
+          .setData({
+        'name': loggedInUser.displayName,
+        'id': loggedInUser.uid,
+        'imageURL': loggedInUser.photoUrl,
+      });
+      DataManager.shared.profile = Profile(
+        name: loggedInUser.displayName,
+        id: loggedInUser.uid,
+        imageURL: loggedInUser.photoUrl,
+      );
+      retrieveConversations();
     }
   }
 
-  retrieveConversations() async {
-    final QuerySnapshot result = await Firestore.instance
+  Future<List<User>> retrieveConversations() async {
+    String collectionString = student ? "studentID" : "tutorID";
+
+    final QuerySnapshot result = await firestore
         .collection('conversation')
         .orderBy('timeStamp', descending: true)
-        .where('studentID', isEqualTo: loggedInUser.uid)
+        .where(collectionString, isEqualTo: loggedInUser.uid)
         .getDocuments();
     final List<DocumentSnapshot> conversations = result.documents;
-    List<String> tutorIDList;
+    List<String> idList;
     for (var conversation in conversations) {
-      tutorIDList.add(conversation.data["tutorID"]);
+      idList.add(conversation.data["tutorID"]);
     }
-    _retrieveContacts(tutorIDList);
+    return _retrieveContacts(idList);
   }
 
-  _retrieveContacts(List<String> tutorIDList) async {
+  _retrieveContacts(List<String> idList) async {
+    String collectionString = student ? "student" : "tutor";
     List<User> users;
-    for (var id in tutorIDList) {
-      final QuerySnapshot result = await Firestore.instance
-          .collection('tutor')
+    for (var id in idList) {
+      final QuerySnapshot result = await firestore
+          .collection(collectionString)
           .where('studentID', isEqualTo: id)
           .getDocuments();
       final List<DocumentSnapshot> tutorDetails = result.documents;
       for (var detail in tutorDetails) {
-        users.add(User(name: detail.data['name'], id: detail.data['id']));
+        users.add(User(
+            name: detail.data['name'],
+            id: detail.data['id'],
+            imageURL: detail.data['imageURL']));
       }
-      Profile.messageContacts = users;
     }
+    DataManager.shared.profile.messageContacts = users;
   }
 }
 

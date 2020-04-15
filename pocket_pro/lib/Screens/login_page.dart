@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:pocketpro/Managers/data_manager.dart';
 import 'package:pocketpro/Screens/messaging_page.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,7 +10,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _auth = FirebaseAuth.instance;
   String email;
   String password;
   bool showSpinner = false;
@@ -105,8 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         setState(() {
                           showSpinner = true;
                         });
-                        final user = await _auth.signInWithEmailAndPassword(
-                            email: email, password: password);
+                        final user = await DataManager.shared.auth
+                            .signInWithEmailAndPassword(
+                                email: email, password: password);
                         if (user != null) {
                           setState(() {
                             showSpinner = false;
