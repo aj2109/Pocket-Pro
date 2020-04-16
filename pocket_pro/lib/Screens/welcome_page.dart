@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'login_page.dart';
-import 'registration_screen.dart';
+import 'registration_page.dart';
 
 class WelcomePage extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -74,7 +74,7 @@ class _WelcomePageState extends State<WelcomePage>
                 borderRadius: BorderRadius.circular(30.0),
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
+                    Navigator.pushNamed(context, LoginPage.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -92,7 +92,7 @@ class _WelcomePageState extends State<WelcomePage>
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
+                    Navigator.pushNamed(context, RegistrationPage.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,

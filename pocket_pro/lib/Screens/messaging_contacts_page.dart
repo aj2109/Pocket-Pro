@@ -26,7 +26,7 @@ class _MessagingContactsPageState extends State<MessagingContactsPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
+                  builder: (context) => HomePage(),
                 ),
               );
             },

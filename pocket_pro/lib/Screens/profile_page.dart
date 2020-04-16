@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pocketpro/Managers/data_manager.dart';
 import 'package:pocketpro/Widgets/back_button_widget.dart';
-
-import 'home_page.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -188,13 +187,27 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Stack(
                 children: <Widget>[
-                  Container(
-                    width: 300,
-                    height: 100,
-                    child: Card(
-                      color: Colors.red[400],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                  GestureDetector(
+                    onTap: () async {
+                      try {
+                        await DataManager.shared.storage
+                            .write(key: 'username', value: null);
+                        await DataManager.shared.storage
+                            .write(key: 'password', value: null);
+                        print('removed!');
+                      } catch (e) {
+                        print('FAILED to remove $e');
+                      }
+                    },
+                    child: Container(
+                      width: 300,
+                      height: 100,
+                      child: Card(
+                        color: Colors.red[400],
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                      ),
                     ),
                   ),
                   Positioned(

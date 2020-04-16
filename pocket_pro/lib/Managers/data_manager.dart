@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:pocketpro/Models/user_models.dart';
 
 class DataManager {
@@ -9,6 +10,7 @@ class DataManager {
   final firestore = Firestore.instance;
   FirebaseUser loggedInUser;
   bool student = true;
+  final storage = new FlutterSecureStorage();
 
   Future<bool> getCurrentUser() async {
     try {

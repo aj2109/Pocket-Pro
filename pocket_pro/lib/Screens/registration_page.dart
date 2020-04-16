@@ -3,14 +3,14 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:pocketpro/Managers/data_manager.dart';
 import 'package:pocketpro/Screens/messaging_page.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class RegistrationPage extends StatefulWidget {
   static const String id = 'registration_screen';
 
   @override
-  _RegistrationScreenState createState() => _RegistrationScreenState();
+  _RegistrationPageState createState() => _RegistrationPageState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _RegistrationPageState extends State<RegistrationPage> {
   String email;
   String password;
   bool showSpinner = false;
@@ -112,6 +112,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           setState(() {
                             showSpinner = false;
                           });
+                          DataManager.shared.storage
+                              .write(key: 'username', value: email);
+                          DataManager.shared.storage
+                              .write(key: 'password', value: password);
                           Navigator.pushNamed(context, MessagingPage.id);
                         }
                       } catch (e) {

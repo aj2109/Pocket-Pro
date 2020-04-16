@@ -25,7 +25,7 @@ class _NavBarState extends State<NavBar> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
+                  builder: (context) => HomePage(),
                 ),
               );
               break;

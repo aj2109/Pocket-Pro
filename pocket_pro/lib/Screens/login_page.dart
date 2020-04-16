@@ -3,13 +3,13 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:pocketpro/Managers/data_manager.dart';
 import 'package:pocketpro/Screens/messaging_page.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   static const String id = 'login_screen';
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginPageState extends State<LoginPage> {
   String email;
   String password;
   bool showSpinner = false;
@@ -111,6 +111,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           setState(() {
                             showSpinner = false;
                           });
+                          DataManager.shared.storage
+                              .write(key: 'username', value: email);
+                          DataManager.shared.storage
+                              .write(key: 'password', value: password);
+                          print('SUCCESSSSSSS');
                           Navigator.pushNamed(context, MessagingPage.id);
                         }
                       } catch (e) {
